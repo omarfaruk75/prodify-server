@@ -5,7 +5,7 @@ require('dotenv').config();
 const port = process.env.PORT || 5000;
 const app = express();
 const corsOptions = {
-    origin:["http://localhost:5173","http://localhost:5174"],
+    origin:["http://localhost:5173","http://localhost:5174","https://prodify-ef578.web.app"],
     credentials:true,
     OptionSuccessStatus:200,
 }
@@ -38,8 +38,6 @@ async function run() {
     })
     app.post('/product',async(req, res)=>{
       const  product = req.body;
-      console.log(product);
-      return;
       const result = await productCollection.insertOne(product)
       res.send(result);
     })
