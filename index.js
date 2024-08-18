@@ -48,11 +48,13 @@ async function run() {
       const filter=req.query.filter;
       const sort=req.query.sort;
       const search=req.query.search;
+
       // let query = {productName:{$regex:search, $options:'i'}};
         let query = {};
     if (search) {
         query.productName = { $regex: search, $options: 'i' };
     }
+    
       // if (filter) query = {category:filter}
       if (filter) query.category = filter;
       let options = {};
